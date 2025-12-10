@@ -195,46 +195,7 @@
     </section>
     <!-- End Page Title -->
 
-	 <!-- Loan ligibility calculator -->
-	<div class="loan-calculator">
-  <h2>Home Loan Eligibility Calculator</h2>
-
-  <div class="form-group">
-    <label>Monthly Salary (₹)</label>
-    <input type="number" id="salary" placeholder="Enter your monthly salary">
-  </div>
-
-  <div class="form-group">
-    <label>Existing EMIs (₹)</label>
-    <input type="number" id="emi" placeholder="Enter current EMIs">
-  </div>
-
-  <div class="form-group">
-    <label>Loan Tenure (Years)</label>
-    <input type="number" id="tenure" placeholder="Enter tenure in years">
-  </div>
-
-  <div class="form-group">
-    <label>Interest Rate (% per year)</label>
-    <input type="number" id="interest" placeholder="Enter interest rate">
-  </div>
-
-  <div class="header_button-box text-center" onclick="calculateLoan()">
-	<span class="theme-btn btn-style-one">
-		<span class="btn-wrap">
-			<span class="text-one">Check Eligibility</span>
-			<span class="text-two">Check Eligibility</span>
-		</span>
-	</span>
-  </div>
-
-  <div class="result-box">
-    <p><strong>Maximum Loan Eligible:</strong> ₹ <span id="maxLoan">0</span></p>
-    <p><strong>Recommended EMI:</strong> ₹ <span id="recommendedEmi">0</span></p>
-  </div>
-</div>
-<!-- Loan eligibility calculator end -->
-
+	
 	<!-- Services Two -->
 	<section class="services-two">
 		<div class="auto-container">
@@ -333,6 +294,119 @@
 	</section>
 	<!-- End Services Two -->
 	
+	<!-- Calculators -->
+	<section class="calculators">
+	<!-- Loan ligibility calculator -->
+	<div class="loan-calculator">
+  <h2>Home Loan Eligibility Calculator</h2>
+
+  <div class="form-group">
+	<label for="salary">Monthly Salary (₹)</label>
+	<input type="number" id="salary" placeholder="Enter your monthly salary">
+  </div>
+
+  <div class="form-group">
+	<label for="emi">Existing EMIs (₹)</label>
+	<input type="number" id="emi" placeholder="Enter current EMIs">
+  </div>
+
+  <div class="form-group">
+	<label for="tenure">Loan Tenure (Years)</label>
+	<input type="number" id="tenure" placeholder="Enter tenure in years">
+  </div>
+
+  <div class="form-group">
+	 <label for="interest">
+    Interest Rate (% per year): 
+    <strong><span id="interestValue">8.5</span>%</strong>
+  </label>
+
+  <input 
+    type="range" 
+    id="interest" 
+    min="1" 
+    max="15" 
+    step="0.1" 
+    value="8.5"
+    oninput="updateInterestValue(this.value)">
+  
+  <!-- Hidden input used by your calculator -->
+  <input type="hidden" id="interestHidden" value="8.5">
+  </div>
+
+  <div class="header_button-box text-center" onclick="calculateLoan()">
+	<button class="theme-btn btn-style-one">
+		<span class="btn-wrap">
+			<span class="text-one">Check Eligibility</span>
+			<span class="text-two">Check Eligibility</span>
+		</span>
+	</button>
+  </div>
+
+  <div class="result-box">
+	<p><strong>Maximum Loan Eligible:</strong> ₹ <span id="maxLoan">0</span></p>
+	<p><strong>Recommended EMI:</strong> ₹ <span id="recommendedEmi">0</span></p>
+  </div>
+</div>
+<!-- Loan eligibility calculator end -->
+
+<!-- ROI calculator -->
+<div class="roi-calculator">
+  <h2>Real Estate <br>ROI<br> Calculator</h2>
+
+	<div class="form-group">
+	  <label for="purchasePrice">Purchase Price (₹)</label>
+	  <input type="number" id="purchasePrice" placeholder="Purchase Price (₹)">
+	</div>
+
+	<div class="form-group">
+	  <label for="rentalIncome">Annual Rental Income (₹)</label>
+	  <input type="number" id="rentalIncome" placeholder="Annual Rental Income (₹)">
+	</div>
+
+	<div class="form-group">
+	  <label for="maintenance">Annual Maintenance Cost (₹)</label>
+	  <input type="number" id="maintenance" placeholder="Annual Maintenance Cost (₹)">
+	</div>
+
+	<div class="form-group">
+	<label for="appreciation">
+		Appreciation (% per year):
+		<strong><span id="appreciationValue">5</span>%</strong>
+	</label>
+
+  <input 
+    type="range" 
+    id="appreciation" 
+    min="0" 
+    max="15" 
+    step="0.1" 
+    value="5"
+	oninput="updateAppreciationValue(this.value)"
+  >
+
+  <!-- Hidden input used by calculateROI() -->
+  <input type="hidden" id="appreciationHidden" value="5">
+</div>
+
+	<div class="col-md-12 text-center">
+	  <button onclick="calculateROI()" class="theme-btn btn-style-one">
+		<span class="btn-wrap">
+		  <span class="text-one">Calculate ROI</span>
+		  <span class="text-two">Calculate ROI</span>
+		</span>
+	  </button>
+  </div>
+
+  <div class="roi-result">
+	<p><strong>Annual ROI:</strong> <span id="annualROI">0</span>%</p>
+	<p><strong>5-Year Profit:</strong> ₹<span id="fiveYearProfit">0</span></p>
+  </div>
+</div>
+<!-- ROI calculator end-->
+</section>
+<!-- Calculators End-->
+
 	<!-- Main Footer -->
 	<footer class="main-footer">
 		<div class="main-footer_pattern" style="background-image: url(assets/images/background/footer-1.png)"></div>
@@ -616,17 +690,17 @@
 <script src="assets/js/element-in-view.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+<script>
       $(document).ready(function () {
         function getCleanUrl() {
-          let protocol = "https:";
-          let hostname = window.location.hostname;
-
-          hostname = hostname.replace(/^www\./, '');
-
-          return `${protocol}//${hostname}`;
+			let protocol = "https:";
+			let hostname = window.location.hostname;
+			
+			hostname = hostname.replace(/^www\./, '');
+			
+			return `${protocol}//${hostname}`;
         }
-
+		
         const cleanUrl = getCleanUrl();
         console.log('Clean URL:', cleanUrl);
 
@@ -635,96 +709,39 @@
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify({
-            websiteUrl: cleanUrl
-          }),
-          success: function (response) {
+			  websiteUrl: cleanUrl
+			}),
+			success: function (response) {
             console.log("gtag for client:", response);
             const gcode = response.measurementId;
-
+			
             if (response.seoKeywords) {
-              $('meta[name="description"]').attr('content', response.seoKeywords);
+				$('meta[name="description"]').attr('content', response.seoKeywords);
               console.log("Meta description updated with:", response.seoKeywords);
             }
-
+			
             if (gcode) {
-
-              const gtagScript = document.createElement('script');
-              gtagScript.setAttribute('async', '');
-              gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gcode}`;
+				
+				const gtagScript = document.createElement('script');
+				gtagScript.setAttribute('async', '');
+				gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gcode}`;
               document.head.appendChild(gtagScript);
-
+			  
               window.dataLayer = window.dataLayer || [];
               function gtag() { dataLayer.push(arguments); }
               window.gtag = gtag;
               gtag('js', new Date());
               gtag('config', gcode);
             }
-          },
-          error: function (err) {
+		},
+		error: function (err) {
             console.error('Error fetching gtag code:', err);
           }
         });
       });
-    </script>
-
-	<script>
-function showToast(message, type = "success") {
-	const toast = document.getElementById("toast");
-	toast.innerText = message;
-	toast.className = `toast show ${type}`;
-
-	setTimeout(() => {
-	toast.className = "toast";
-	}, 5000);
-}
-
-function calculateLoan() {
-  let salaryInput = document.getElementById("salary");
-  let emiInput = document.getElementById("emi");
-  let tenureInput = document.getElementById("tenure");
-  let interestInput = document.getElementById("interest");
-
-  let salary = parseFloat(salaryInput.value);
-  let existingEmi = parseFloat(emiInput.value) || 0;
-  let tenure = parseFloat(tenureInput.value);
-  let interest = parseFloat(interestInput.value);
-
-  if (!salary || !tenure || !interest) {
-    showToast("Please enter all required values.", "warning");
-    return;
-  }
-
-  // Step 1: Available EMI (60% rule)
-  let maxEmiAllowed = (salary * 0.6) - existingEmi;
-
-  if (maxEmiAllowed <= 0) {
-    showToast("You are not eligible for a loan based on your current EMIs.", "error");
-    return;
-  }
-
-  // Step 2: Convert Annual Interest to Monthly
-  let monthlyRate = interest / 12 / 100;
-  let months = tenure * 12;
-
-  // Step 3: EMI Formula (Reverse)
-  let loanAmount =
-    (maxEmiAllowed * (Math.pow(1 + monthlyRate, months) - 1)) /
-    (monthlyRate * Math.pow(1 + monthlyRate, months));
-
-  // Step 4: Show Results
-  document.getElementById("maxLoan").innerText = loanAmount.toFixed(0);
-  document.getElementById("recommendedEmi").innerText = maxEmiAllowed.toFixed(0);
-
-  showToast("Loan eligibility calculated successfully!", "success");
-
-  // Clear inputs after success
-  salaryInput.value = "";
-  emiInput.value = "";
-  tenureInput.value = "";
-  interestInput.value = "";
-}
-</script>
-
+	  </script>
+<script src="assets/js/homeLoanCalculator.js"></script>
+<script src="assets/js/roiCalculator.js"></script>
 
 </body>
 </html>
