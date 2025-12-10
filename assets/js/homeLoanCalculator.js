@@ -16,7 +16,6 @@ function calculateLoan() {
 
   // Step 1: Available EMI (60% rule)
   let maxEmiAllowed = (salary * 0.6) - existingEmi;
-
   if (maxEmiAllowed <= 0) {
     showToast("You are not eligible for a loan based on your current EMIs.", "error");
     return;
