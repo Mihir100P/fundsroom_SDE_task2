@@ -740,6 +740,18 @@
         });
       });
 	  </script>
+
+	  <script>
+		function showToast(message, type = "success") {
+	const toast = document.getElementById("toast");
+	toast.innerText = message;
+	toast.className = `toast show ${type}`;
+
+	setTimeout(() => {
+	toast.className = "toast";
+	}, 5000);
+}
+	  </script>
 <script src="assets/js/homeLoanCalculator.js"></script>
 <script src="assets/js/roiCalculator.js"></script>
 

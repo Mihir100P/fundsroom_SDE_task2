@@ -1,13 +1,3 @@
-function showToast(message, type = "success") {
-	const toast = document.getElementById("toast");
-	toast.innerText = message;
-	toast.className = `toast show ${type}`;
-
-	setTimeout(() => {
-	toast.className = "toast";
-	}, 5000);
-}
-
 function calculateLoan() {
   let salaryInput = document.getElementById("salary");
   let emiInput = document.getElementById("emi");
