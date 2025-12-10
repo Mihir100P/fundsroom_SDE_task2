@@ -7089,7 +7089,7 @@
 }
 
 /* Loan calculator */
-/* .loan-calculator {
+.loan-calculator {
   max-width: 450px;
   margin: 50px auto;
   padding: 25px;
@@ -7141,10 +7141,10 @@
   background: #f5f5f5;
   padding: 15px;
   border-radius: 8px;
-} */
+}
 
 /* Toast */
-/* .toast {
+.toast {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -7168,4 +7168,4 @@
 
 .toast.success { background: #0fac03; }
 .toast.error   { background: #e74c3c; }
-.toast.warning { background: #f39c12; } */
+.toast.warning { background: #f39c12; }
