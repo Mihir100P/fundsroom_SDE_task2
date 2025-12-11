@@ -7088,46 +7088,6 @@
 	margin-top:30px;
 }
 
-/* Loan calculator */
-.loan-calculator {
-  max-width: 450px;
-  width: 50%;
-  margin: 50px auto;
-  padding: 25px;
-  background: #ffffff;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 12px;
-}
-
-.loan-calculator h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.loan-calculator .form-group {
-  margin-bottom: 15px;
-}
-
-.loan-calculator label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.loan-calculator input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.result-box {
-  margin-top: 20px;
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-}
-
 /* Toast */
 .toast {
   position: fixed;
@@ -7155,65 +7115,55 @@
 .toast.error   { background: #e74c3c; }
 .toast.warning { background: #f39c12; }
 
-/* ROI calculator */
 
-.roi-calculator {
-  max-width: 450px;
-  width: 50%;
-  margin: 50px auto;
-  padding: 25px;
-  background: #ffffff;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 12px;
+
+.sidebar-calc {
+	position: fixed;
+	top: 0;
+	right: -420px;
+	width: 400px;
+	height: 100vh;
+	background: #ffffff;
+	box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+	padding: 20px;
+	z-index: 9999;
+	transition: 0.4s ease;
+	overflow-y: auto;
+	border-left: 3px solid var(--main-color);
 }
 
-.roi-calculator h2{
-  text-align: center;
-  margin-bottom: 20px;
+.sidebar-calc.open {
+	right: 0;
 }
 
-.roi-calculator .form-group {
-  margin-bottom: 15px;
+.sidebar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.roi-calculator label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
+.sidebar-header h3 {
+	font-size: 22px;
+	margin: 0;
 }
 
-.roi-calculator input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.close-btn {
+	cursor: pointer;
+	font-size: 22px;
+	color: #333;
 }
 
-.roi-result {
-  margin-top: 20px;
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
+.sidebar-body label {
+	margin-top: 10px;
+	font-weight: 600;
 }
 
-.calculators {
-  display: flex;
-  gap: 30px;
-  align-items: stretch;
-  justify-content: space-between;
-  padding: 40px 0;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .calculators {
-    flex-direction: column;
-  }
-
-  .loan-calculator,
-  .roi-calculator {
-    width: 100%;
-  }
+.sidebar-body input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 12px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
 }
 
 input[type="range"] {
@@ -7222,4 +7172,145 @@ input[type="range"] {
   accent-color: #f5f5f5;
 }
 
+.loan-result,.roi-result {
+  margin-top: 20px;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+
+.theme-toggle {
+  font-size: 20px;
+  cursor: pointer;
+  margin-inline: 20px;
+  color: var(--main-color);
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+/* ============================
+   DARK MODE APPLICATION
+   ============================ */
+
+body.dark-mode {
+  background: var(--bg-dark) !important;
+  color: var(--color-two) !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode a,
+.dark-mode label {
+  color: var(--color-two) !important;
+}
+
+/* Cards, sections, calculators */
+.dark-mode .service-block_one-inner,
+.dark-mode .loan-calculator,
+.dark-mode .roi-calculator,
+.dark-mode .sidebar-calc {
+  background: var(--white-color) !important;
+  color: var(--color-two) !important;
+}
+
+/* Inputs */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background: var(--color-three) !important;
+  color: var(--color-two) !important;
+  border-color: var(--color-five) !important;
+}
+
+.dark-mode input::placeholder {
+  color: #aaa !important;
+}
+
+/* Page Title Overlay */
+.dark-mode .page-title_gradient {
+	background: rgba(0,0,0,0.4) !important;
+}
+
+/* Range slider */
+.dark-mode input[type="range"] {
+	background: #555 !important;
+}
+
+/* Footer */
+.dark-mode .main-footer:before {
+  background-color: #0f0f0f !important;
+}
+
+/* Ensure text remains visible */
+.dark-mode .main-footer p,
+.dark-mode .main-footer a,
+.dark-mode .main-footer li,
+.dark-mode .main-footer h5,
+.dark-mode .main-footer .footer-title,
+.dark-mode .main-footer .footer-text {
+  color: #fff !important;
+}
+
+/* ============================================
+   MOBILE SIDEBAR DARK MODE SUPPORT
+   ============================================ */
+
+/* Sidebar background */
+.dark-mode .mobile-menu .menu-box {
+    background: #111 !important;
+    color: #fff !important;
+}
+
+/* Close button */
+.dark-mode .mobile-menu .close-btn span {
+    color: #fff !important;
+}
+
+/* Menu links */
+.dark-mode .mobile-menu .navigation li a {
+    color: #fff !important;
+}
+
+/* Divider / borders */
+.dark-mode .mobile-menu .navigation li {
+    border-color: #333 !important;
+}
+
+/* Overlay behind sidebar */
+.dark-mode .menu-backdrop {
+    background: rgba(0,0,0,0.8) !important;
+}
+
+
+/* Result Boxes (Loan + ROI) */
+.dark-mode .loan-result,
+.dark-mode .roi-result {
+    background: #1a1a1a !important;
+    color: #fff !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+}
+
+.dark-mode .loan-result p,
+.dark-mode .roi-result p {
+    color: #fff !important;
+}
+
+/* favourite button */
+.property-block_one-heart img {
+    transition: 0.3s;
+}
+
+.property-block_one-heart.active img {
+    transform: scale(1.2);
+	
+}
 

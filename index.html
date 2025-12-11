@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 <div class="page-wrapper">
 	
 	<!-- Cursor -->
@@ -112,6 +111,7 @@
 												<li><a href="property-detail_06.html">property detail 06</a></li>
 											</ul>
 										</li>
+										<li><a href="favourite.html">favorite</a></li>
 										<li><a href="blog.html">Blogs</a>
 											<!-- <ul>
 												<li><a href="blog.html">Our Blogs</a></li>
@@ -153,6 +153,12 @@
 									</span>
 								</a>
 							</div>
+
+							<!-- dark/light theme toggle -->
+							 <div class="theme-toggle" onclick="toggleTheme()">
+									<i id="themeIcon" class="fa fa-moon"></i>
+							 </div>
+
 							<!-- Mobile Navigation Toggler -->
 							<div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
 						</div>
@@ -586,99 +592,156 @@
 	<!-- End App One -->
 	
 	<!-- Property One -->
-	<section class="property-one">
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="sec-title_title">Latest Properties</div>
-				<h2 class="sec-title_heading">Explore Featured <br> Properties</h2>
-			</div>
-			<div class="row clearfix">
-				
-				<!-- Property Block One -->
-				<div class="property-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="property-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="property-block_one-image">
-							<div class="property-block_one-title">Featuerd</div>
-							<a href="property-detail.html"><img src="assets/images/resource/property1.jpeg" alt="" /></a>
-						</div>
-						<div class="property-block_one-content">
-							<div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
-							<h4 class="property-block_one-heading"><a href="property-detail.html">Super deluxe bed room near sea beech</a></h4>
-							<ul class="property-block_one-info">
-								<li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
-								<li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
-								<li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
-							</ul>
-							<div class="d-flex justify-content-between align-items-center flex-wrap">
-								<div class="property-block_one-price">$2,400 <span>/month</span></div>
-								<a class="property-block_one-heart"><img src="assets/images/icons/heart.svg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Property Block One -->
-				<div class="property-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="property-block_one-inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="property-block_one-image">
-							<div class="property-block_one-off">20% off</div>
-							<a href="property-detail.html"><img src="assets/images/resource/property2.jpg" alt="" /></a>
-						</div>
-						<div class="property-block_one-content">
-							<div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
-							<h4 class="property-block_one-heading"><a href="property-detail.html">Super deluxe bed room near sea beech</a></h4>
-							<ul class="property-block_one-info">
-								<li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
-								<li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
-								<li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
-							</ul>
-							<div class="d-flex justify-content-between align-items-center flex-wrap">
-								<div class="property-block_one-price">$2,400 <span>/month</span></div>
-								<a class="property-block_one-heart"><img src="assets/images/icons/heart.svg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Property Block One -->
-				<div class="property-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="property-block_one-inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="property-block_one-image">
-							<div class="property-block_one-title">Featuerd</div>
-							<a href="property-detail.html"><img src="assets/images/resource/property3.jpg" alt="" /></a>
-						</div>
-						<div class="property-block_one-content">
-							<div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
-							<h4 class="property-block_one-heading"><a href="property-detail.html">Super deluxe bed room near sea beech</a></h4>
-							<ul class="property-block_one-info">
-								<li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
-								<li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
-								<li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
-							</ul>
-							<div class="d-flex justify-content-between align-items-center flex-wrap">
-								<div class="property-block_one-price">$2,400 <span>/month</span></div>
-								<a class="property-block_one-heart"><img src="assets/images/icons/heart.svg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-			<!-- Header Button Box -->
-			<div class="property-one_button text-center">
-				<a href="property.html" class="theme-btn btn-style-one">
-					<span class="btn-wrap">
-						<span class="text-one">Explore More</span>
-						<span class="text-two">Explore More</span>
-					</span>
-				</a>
-			</div>
-			
-		</div>
-	</section>
-	<!-- End Property One -->
+<section class="property-one">
+    <div class="auto-container">
+
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="sec-title_title">Latest Properties</div>
+            <h2 class="sec-title_heading">Explore Featured <br> Properties</h2>
+        </div>
+
+        <div class="row clearfix">
+
+            <!-- Property Block One -->
+            <div class="property-block_one col-lg-4 col-md-6 col-sm-12">
+                <div class="property-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+
+                    <div class="property-block_one-image">
+                        <div class="property-block_one-title">Featured</div>
+                        <a href="property-detail.html"><img src="assets/images/resource/property1.jpeg" alt="" /></a>
+                    </div>
+
+                    <div class="property-block_one-content">
+                        <div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
+
+                        <h4 class="property-block_one-heading">
+                            <a href="property-detail.html">Super deluxe bed room near sea beech</a>
+                        </h4>
+
+                        <ul class="property-block_one-info">
+                            <li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
+                            <li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
+                            <li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="property-block_one-price">$2,400 <span>/month</span></div>
+
+                            <!-- Favourite Heart -->
+                            <a class="property-block_one-heart"
+                               onclick="toggleFavourite(this)"
+                               data-id="home001"
+                               data-title="Super deluxe bed room near sea beech"
+                               data-price="2400"
+                               data-location="Pasadena 809b-2, Oklahoma"
+                               data-img="assets/images/resource/property1.jpeg">
+                                <img src="assets/images/icons/heart.svg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Block Two -->
+            <div class="property-block_one col-lg-4 col-md-6 col-sm-12">
+                <div class="property-block_one-inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+
+                    <div class="property-block_one-image">
+                        <div class="property-block_one-off">20% Off</div>
+                        <a href="property-detail.html"><img src="assets/images/resource/property2.jpg" alt="" /></a>
+                    </div>
+
+                    <div class="property-block_one-content">
+                        <div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
+
+                        <h4 class="property-block_one-heading">
+                            <a href="property-detail.html">Super deluxe bed room near sea beech</a>
+                        </h4>
+
+                        <ul class="property-block_one-info">
+                            <li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
+                            <li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
+                            <li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="property-block_one-price">$2,400 <span>/month</span></div>
+
+                            <!-- Favourite Heart -->
+                            <a class="property-block_one-heart"
+                               onclick="toggleFavourite(this)"
+                               data-id="home002"
+                               data-title="Super deluxe bed room near sea beech"
+                               data-price="2400"
+                               data-location="Pasadena 809b-2, Oklahoma"
+                               data-img="assets/images/resource/property2.jpg">
+                                <img src="assets/images/icons/heart.svg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Block Three -->
+            <div class="property-block_one col-lg-4 col-md-6 col-sm-12">
+                <div class="property-block_one-inner wow FadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+
+                    <div class="property-block_one-image">
+                        <div class="property-block_one-title">Featured</div>
+                        <a href="property-detail.html"><img src="assets/images/resource/property3.jpg" alt="" /></a>
+                    </div>
+
+                    <div class="property-block_one-content">
+                        <div class="property-block_one-location"><i class="flaticon-maps-and-flags"></i>Pasadena 809b-2, Oklahoma</div>
+
+                        <h4 class="property-block_one-heading">
+                            <a href="property-detail.html">Super deluxe bed room near sea beech</a>
+                        </h4>
+
+                        <ul class="property-block_one-info">
+                            <li><span><img src="assets/images/icons/bed.svg" alt="" /></span>4 Beds</li>
+                            <li><span><img src="assets/images/icons/bath.svg" alt="" /></span>2 Bathrooms</li>
+                            <li><span><img src="assets/images/icons/square.svg" alt="" /></span>6x8 m²</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="property-block_one-price">$2,400 <span>/month</span></div>
+
+                            <!-- Favourite Heart -->
+                            <a class="property-block_one-heart"
+                               onclick="toggleFavourite(this)"
+                               data-id="home003"
+                               data-title="Super deluxe bed room near sea beech"
+                               data-price="2400"
+                               data-location="Pasadena 809b-2, Oklahoma"
+                               data-img="assets/images/resource/property3.jpg">
+                                <img src="assets/images/icons/heart.svg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Explore More Button -->
+        <div class="property-one_button text-center">
+            <a href="property.html" class="theme-btn btn-style-one">
+                <span class="btn-wrap">
+                    <span class="text-one">Explore More</span>
+                    <span class="text-two">Explore More</span>
+                </span>
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- End Property One -->
+
 	
 	<!-- Team One -->
 	<section class="team-one">
@@ -1280,7 +1343,7 @@
 								</a>
 							</div>
 							<div class="copyright">
-								<p style="color: white;">&copy; Powered by <a href="https://www.fundsweb.in" target="_blank" rel="noopener noreferrer" style="color: red;">Fundsweb</a>.in</p>
+								<p style="color: white;">&copy; Powered by <a href="https://www.fundsweb.in" target="_blank" rel="noopener noreferrer" style="color: red !important;">Fundsweb</a>.in</p>
 							</div>
 						</div>
 					</div>
@@ -1503,6 +1566,26 @@
         });
       });
     </script>
+	<script src="assets/js/light-dark-theme.js"></script>
+	<script src="assets/js/favourite.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
+    document.querySelectorAll(".property-block_one-heart").forEach(el => {
+        const id = el.getAttribute("data-id");
+        const isFav = favourites.some(item => item.id === id);
+
+        if (isFav) {
+            el.classList.add("active");
+            el.querySelector("img").src = "assets/images/icons/favorite.png";
+        }
+    });
+});
+</script>
+
+
+
 
 </body>
 </html>

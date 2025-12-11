@@ -112,6 +112,7 @@
 												<li><a href="property-detail_06.html">property detail 06</a></li>
 											</ul>
 										</li>
+										<li><a href="favourite.html">favorite</a></li>
 										<li><a href="blog.html">Blogs</a>
 											<!-- <ul>
 												<li><a href="blog.html">Our Blogs</a></li>
@@ -153,6 +154,12 @@
 									</span>
 								</a>
 							</div>
+
+							<!-- dark/light theme toggle -->
+							 <div class="theme-toggle" onclick="toggleTheme()">
+									<i id="themeIcon" class="fa fa-moon"></i>
+							 </div>
+							 
 							<!-- Mobile Navigation Toggler -->
 							<div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
 						</div>
@@ -192,6 +199,25 @@
 				<li>our Services</li>
 			</ul>
         </div>
+
+		<!-- Calculator buttons -->
+<section class="calculator-launcher text-center mt-5">
+  <button class="theme-btn btn-style-one m-2" onclick="openSidebar('loanCalcSidebar')">
+    <span class="btn-wrap">
+      <span class="text-one">Home Loan Eligibility Calculator</span>
+      <span class="text-two">Home Loan Eligibility Calculator</span>
+    </span>
+  </button>
+
+  <button class="theme-btn btn-style-one m-2" onclick="openSidebar('roiCalcSidebar')">
+    <span class="btn-wrap">
+      <span class="text-one">Real Estate ROI Calculator</span>
+      <span class="text-two">Real Estate ROI Calculator</span>
+    </span>
+  </button>
+</section>
+<!-- Calculator buttons end -->
+
     </section>
     <!-- End Page Title -->
 
@@ -294,118 +320,89 @@
 	</section>
 	<!-- End Services Two -->
 	
-	<!-- Calculators -->
-	<section class="calculators">
-	<!-- Loan ligibility calculator -->
-	<div class="loan-calculator">
-  <h2>Home Loan Eligibility Calculator</h2>
-
-  <div class="form-group">
-	<label for="salary">Monthly Salary (₹)</label>
-	<input type="number" id="salary" placeholder="Enter your monthly salary">
+	<!-- loan calc -->
+<div id="loanCalcSidebar" class="sidebar-calc">
+  <div class="sidebar-header">
+    <h3>Home Loan Calculator</h3>&nbsp;
+    <span class="close-btn" onclick="closeSidebar('loanCalcSidebar')">✖</span>
   </div>
 
-  <div class="form-group">
-	<label for="emi">Existing EMIs (₹)</label>
-	<input type="number" id="emi" placeholder="Enter current EMIs">
-  </div>
+  <div class="sidebar-body">
 
-  <div class="form-group">
-	<label for="tenure">Loan Tenure (Years)</label>
-	<input type="number" id="tenure" placeholder="Enter tenure in years">
-  </div>
+    <label>Monthly Salary (₹)</label>
+    <input type="number" id="salary" placeholder="Enter your monthly salary">
 
-  <div class="form-group">
-	 <label for="interest">
-    Interest Rate (% per year): 
-    <strong><span id="interestValue">8.5</span>%</strong>
-  </label>
+    <label>Existing EMIs (₹)</label>
+    <input type="number" id="emi" placeholder="Enter current EMIs">
 
-  <input 
-    type="range" 
-    id="interest" 
-    min="1" 
-    max="15" 
-    step="0.1" 
-    value="8.5"
-    oninput="updateInterestValue(this.value)">
-  
-  <!-- Hidden input used by your calculator -->
-  <input type="hidden" id="interestHidden" value="8.5">
-  </div>
+    <label>Loan Tenure (Years)</label>
+    <input type="number" id="tenure" placeholder="Enter years">
 
-  <div class="header_button-box text-center" onclick="calculateLoan()">
-	<button class="theme-btn btn-style-one">
-		<span class="btn-wrap">
-			<span class="text-one">Check Eligibility</span>
-			<span class="text-two">Check Eligibility</span>
-		</span>
-	</button>
-  </div>
+    <label>
+      Interest Rate (%):
+      <strong><span id="interestValue">8.5</span>%</strong>
+    </label>
+    <input type="range" id="interest" min="1" max="15" step="0.1" value="8.5" oninput="updateInterestValue(this.value)">
+    <input type="hidden" id="interestHidden" value="8.5">
 
-  <div class="result-box">
-	<p><strong>Maximum Loan Eligible:</strong> ₹ <span id="maxLoan">0</span></p>
-	<p><strong>Recommended EMI:</strong> ₹ <span id="recommendedEmi">0</span></p>
+    <button class="theme-btn btn-style-one" onclick="calculateLoan()">
+      <span class="btn-wrap">
+        <span class="text-one">Calculate Eligibility</span>
+        <span class="text-two">Calculate Eligibility</span>
+      </span>
+    </button>
+
+    <div class="loan-result">
+      <p><strong>Maximum Loan Eligible:</strong> ₹ <span id="maxLoan">0</span></p>
+      <p><strong>Recommended EMI:</strong> ₹ <span id="recommendedEmi">0</span></p>
+    </div>
+
   </div>
 </div>
-<!-- Loan eligibility calculator end -->
+<!-- loan calc end -->
 
-<!-- ROI calculator -->
-<div class="roi-calculator">
-  <h2>Real Estate <br>ROI<br> Calculator</h2>
-
-	<div class="form-group">
-	  <label for="purchasePrice">Purchase Price (₹)</label>
-	  <input type="number" id="purchasePrice" placeholder="Purchase Price (₹)">
-	</div>
-
-	<div class="form-group">
-	  <label for="rentalIncome">Annual Rental Income (₹)</label>
-	  <input type="number" id="rentalIncome" placeholder="Annual Rental Income (₹)">
-	</div>
-
-	<div class="form-group">
-	  <label for="maintenance">Annual Maintenance Cost (₹)</label>
-	  <input type="number" id="maintenance" placeholder="Annual Maintenance Cost (₹)">
-	</div>
-
-	<div class="form-group">
-	<label for="appreciation">
-		Appreciation (% per year):
-		<strong><span id="appreciationValue">5</span>%</strong>
-	</label>
-
-  <input 
-    type="range" 
-    id="appreciation" 
-    min="0" 
-    max="15" 
-    step="0.1" 
-    value="5"
-	oninput="updateAppreciationValue(this.value)"
-  >
-
-  <!-- Hidden input used by calculateROI() -->
-  <input type="hidden" id="appreciationHidden" value="5">
-</div>
-
-	<div class="col-md-12 text-center">
-	  <button onclick="calculateROI()" class="theme-btn btn-style-one">
-		<span class="btn-wrap">
-		  <span class="text-one">Calculate ROI</span>
-		  <span class="text-two">Calculate ROI</span>
-		</span>
-	  </button>
+<!-- roi calc -->
+<div id="roiCalcSidebar" class="sidebar-calc">
+	<div class="sidebar-header">
+		<h3>ROI Calculator</h3> &nbsp;
+		<span class="close-btn" onclick="closeSidebar('roiCalcSidebar')">✖</span>
   </div>
 
-  <div class="roi-result">
-	<p><strong>Annual ROI:</strong> <span id="annualROI">0</span>%</p>
-	<p><strong>5-Year Profit:</strong> ₹<span id="fiveYearProfit">0</span></p>
+  <div class="sidebar-body">
+
+    <label>Purchase Price (₹)</label>
+    <input type="number" id="purchasePrice" placeholder="Enter purchase price">
+
+    <label>Annual Rental Income (₹)</label>
+    <input type="number" id="rentalIncome" placeholder="Enter income">
+
+    <label>Annual Maintenance Cost (₹)</label>
+    <input type="number" id="maintenance" placeholder="Enter maintenance cost">
+
+    <label>
+      Appreciation (%):
+      <strong><span id="appreciationValue">5</span>%</strong>
+    </label>
+    <input type="range" id="appreciation" min="0" max="15" step="0.1" value="5" oninput="updateAppreciationValue(this.value)">
+    <input type="hidden" id="appreciationHidden" value="5">
+
+    <button class="theme-btn btn-style-one" onclick="calculateROI()">
+      <span class="btn-wrap">
+        <span class="text-one">Calculate ROI</span>
+        <span class="text-two">Calculate ROI</span>
+      </span>
+    </button>
+
+    <div class="roi-result">
+      <p><strong>Annual ROI:</strong> <span id="annualROI">0</span>%</p>
+      <p><strong>5-Year Profit:</strong> ₹<span id="fiveYearProfit">0</span></p>
+    </div>
   </div>
 </div>
-<!-- ROI calculator end-->
-</section>
-<!-- Calculators End-->
+
+<!-- roi calc end -->
+
+
 
 	<!-- Main Footer -->
 	<footer class="main-footer">
@@ -754,6 +751,34 @@
 	  </script>
 <script src="assets/js/homeLoanCalculator.js"></script>
 <script src="assets/js/roiCalculator.js"></script>
+
+<script>
+function openSidebar(id) {
+  // Close ALL sidebars first
+  document.querySelectorAll(".sidebar-calc").forEach(sidebar => {
+    sidebar.classList.remove("open");
+  });
+
+  // Then open only the selected one
+  document.getElementById(id).classList.add("open");
+}
+
+function closeSidebar(id) {
+  document.getElementById(id).classList.remove("open");
+}
+
+function updateInterestValue(val) {
+  document.getElementById("interestValue").innerText = val;
+  document.getElementById("interestHidden").value = val;
+}
+
+function updateAppreciationValue(val) {
+  document.getElementById("appreciationValue").innerText = val;
+  document.getElementById("appreciationHidden").value = val;
+}
+</script>
+<script src="assets/js/light-dark-theme.js"></script>
+
 
 </body>
 </html>

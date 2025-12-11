@@ -1092,3 +1092,44 @@ img{
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
+
+
+/* ============================
+   DARK MODE THEME VARIABLES
+   ============================ */
+.dark-mode {
+
+  /* Main brand color stays same */
+  --main-color: rgb(235,32,39);
+
+  /* Primary text becomes light */
+  --color-two: rgb(230,230,230);
+  --color-two-rgb: 230,230,230;
+
+  /* Light backgrounds become dark */
+  --color-three: rgb(40,40,40);
+  --color-three-rgb: 40,40,40;
+
+  --color-four: rgb(50,50,50);
+  --color-four-rgb: 50,50,50;
+
+  --color-five: rgb(180,180,180);
+  --color-five-rgb: 180,180,180;
+
+  /* Accent yellow stays same */
+  --color-six: rgb(255,164,27);
+
+  /* Light blue → dusty blue */
+  --color-seven: rgb(80,110,130);
+
+  /* Background white → soft dark */
+  --white-color: rgb(30,30,30);
+  --white-color-rgb: 30,30,30;
+
+  /* Black becomes lighter black */
+  --black-color: rgb(240,240,240);
+  --black-color-rgb: 240,240,240;
+
+  /* Page background */
+  --bg-dark: #121212;
+}
