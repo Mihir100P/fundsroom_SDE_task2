@@ -202,6 +202,13 @@
 
 		<!-- Calculator buttons -->
 <section class="calculator-launcher text-center mt-5">
+	<button class="theme-btn btn-style-one m-2" onclick="openSidebar('emiCalcSidebar')">
+	  <span class="btn-wrap">
+		<span class="text-one">EMI Calculator</span>
+		<span class="text-two">EMI Calculator</span>
+	  </span>
+	</button>
+
   <button class="theme-btn btn-style-one m-2" onclick="openSidebar('loanCalcSidebar')">
     <span class="btn-wrap">
       <span class="text-one">Home Loan Eligibility Calculator</span>
@@ -215,6 +222,7 @@
       <span class="text-two">Real Estate ROI Calculator</span>
     </span>
   </button>
+
 </section>
 <!-- Calculator buttons end -->
 
@@ -320,6 +328,45 @@
 	</section>
 	<!-- End Services Two -->
 	
+	<!-- EMI calc -->
+<div id="emiCalcSidebar" class="sidebar-calc">
+  <div class="sidebar-header">
+    <h3>EMI Calculator</h3>&nbsp;
+    <span class="close-btn" onclick="closeSidebar('emiCalcSidebar')">✖</span>
+  </div>
+
+  <div class="sidebar-body">
+
+    <label>Loan Amount (₹)</label>
+    <input type="number" id="emiLoanAmount" placeholder="Enter loan amount">
+
+    <label>Interest Rate (%): 
+      <strong><span id="emiInterestValue">8.5</span>%</strong>
+    </label>
+    <input type="range" id="emiInterest" min="1" max="15" step="0.1" value="8.5"
+           oninput="updateEmiInterestValue(this.value)">
+    <input type="hidden" id="emiInterestHidden" value="8.5">
+
+    <label>Loan Tenure (Years)</label>
+    <input type="number" id="emiTenure" placeholder="Enter years">
+
+    <button class="theme-btn btn-style-one" onclick="calculateEMI()">
+      <span class="btn-wrap">
+        <span class="text-one">Calculate EMI</span>
+        <span class="text-two">Calculate EMI</span>
+      </span>
+    </button>
+
+    <div class="emi-result">
+      <p><strong>Monthly EMI:</strong> ₹ <span id="monthlyEmi">0</span></p>
+      <p><strong>Total Interest:</strong> ₹ <span id="totalInterest">0</span></p>
+      <p><strong>Total Amount Payable:</strong> ₹ <span id="totalPayable">0</span></p>
+    </div>
+
+  </div>
+</div>
+<!-- EMI calc end -->
+
 	<!-- loan calc -->
 <div id="loanCalcSidebar" class="sidebar-calc">
   <div class="sidebar-header">
@@ -751,6 +798,7 @@
 	  </script>
 <script src="assets/js/homeLoanCalculator.js"></script>
 <script src="assets/js/roiCalculator.js"></script>
+<script src="assets/js/emiCalculator.js"></script>
 
 <script>
 function openSidebar(id) {
